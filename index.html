@@ -3,31 +3,1071 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exceed Growth Partners</title>
+    <meta name="description" content="Exceed Growth Partners - Partnering with B2B services leaders for long-term growth and building enduring businesses.">
+    <title>Exceed Growth Partners | B2B Services Investment</title>
     <style>
+        /* --- Basic Reset & Variables --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #3498db;
+            --primary-dark: #2980b9;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --light-text: #555;
+            --background: #f9f9f9;
+            --white: #ffffff;
+            --light-gray: #ecf0f1;
+            --border-color: #eee;
+            --accent-color: #2ecc71;
+            --footer-color: #7f8c8d;
+            --section-padding: 80px 0;
+            --transition: all 0.3s ease;
+        }
+
+        /* --- Base Styles --- */
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background);
+            scroll-behavior: smooth; /* Note: JS handles smooth scroll for anchors for better control */
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Utility Classes --- */
+        .text-center {
             text-align: center;
-            padding: 50px;
         }
-        h1 {
-            font-size: 36px;
-            color: #002855;
+
+        .mb-1 {
+            margin-bottom: 0.5rem;
         }
-        p {
-            font-size: 18px;
-            color: #333;
+
+        .mb-2 {
+            margin-bottom: 1rem;
         }
-        .contact {
-            margin-top: 20px;
+
+        .mb-4 {
+            margin-bottom: 2rem;
+        }
+
+        /* --- Navigation Styles --- */
+        nav {
+            background-color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: padding 0.3s ease, box-shadow 0.3s ease; /* Refined transition */
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative; /* Added for absolute positioning of menu */
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
             font-weight: bold;
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        nav .logo:hover {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-dark);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem; /* Slightly larger for touch */
+            color: var(--primary-color);
+            cursor: pointer;
+            padding: 5px; /* Add padding for easier tapping */
+            line-height: 1;
+        }
+
+        /* --- Section Base Styles --- */
+        section {
+            padding: var(--section-padding);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-of-type {
+             border-bottom: none;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        section h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p, li {
+            margin-bottom: 1rem;
+            color: var(--light-text);
+        }
+
+        ul, ol {
+            margin-left: 20px; /* Default list indent */
+            padding-left: 0; /* Remove browser default padding if margin is used */
+        }
+
+        strong { /* Consistent strong tag styling */
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        /* --- Hero Section Styles --- */
+        #hero {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e0e8f9 100%);
+            text-align: center;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color); /* Add border like other sections */
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Replace with your actual image path */
+            /* background: url('path/to/your/hero-background.jpg') center/cover no-repeat; */
+            background: url('/api/placeholder/1200/600/business') center/cover no-repeat; /* Example placeholder */
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        #hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        #hero h1 {
+            font-size: 2.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        #hero .sub-headline {
+            font-size: 1.3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #hero .tagline {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #hero .optional-addition {
+            font-size: 1.1rem;
+            color: var(--light-text);
+            margin-bottom: 35px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Call To Action Button Styles --- */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            border: none; /* Ensure consistency */
+            cursor: pointer; /* Indicate clickability */
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        }
+
+        /* --- About Section Styles --- */
+        #about {
+            background-color: var(--white);
+        }
+
+        #about .about-core {
+            background-color: var(--light-gray);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        #about .about-core:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        #about .about-core p {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            margin-bottom: 0; /* Remove default margin inside this block */
+        }
+        #about .about-core strong {
+             font-weight: 600; /* Ensure strong tag is bold */
+        }
+
+        /* --- Approach Section Styles --- */
+        #approach {
+            background-color: var(--background);
+        }
+
+        #approach ol {
+            counter-reset: approach-counter;
+            list-style: none;
+            margin-left: 0; /* Override default list indent */
+            padding-left: 0;
+        }
+
+        #approach ol li {
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 60px; /* Space for the counter */
+            counter-increment: approach-counter;
+        }
+
+        #approach ol li::before {
+            content: counter(approach-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1; /* Prevent line height issues */
+        }
+
+        /* --- Investment Focus Section Styles --- */
+        #focus {
+            background-color: var(--white);
+        }
+
+        #focus .opportunistic-note {
+            background-color: rgba(46, 204, 113, 0.1);
+            border-left: 4px solid var(--accent-color);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 6px 6px 0; /* Style the radius */
+        }
+        #focus .opportunistic-note p {
+             margin-bottom: 0;
+        }
+
+        #focus .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px; /* Slightly increased gap */
+            margin-top: 40px;
+        }
+
+        #focus .focus-item {
+            background-color: var(--light-gray);
+            padding: 25px;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        #focus .focus-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        #focus .focus-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+         #focus .focus-item p {
+             margin-bottom: 0; /* Remove default margin */
+         }
+
+        /* --- Investment Strategy Section Styles --- */
+        #strategy {
+            background-color: var(--background);
+        }
+
+        #strategy .strategy-model {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        #strategy .strategy-model:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        #strategy .strategy-model h4 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-gray); /* Use light gray for contrast */
+        }
+
+        #strategy .strategy-model p:last-of-type {
+            margin-bottom: 0; /* Remove margin on last paragraph */
+        }
+
+        /* --- Contact Section Styles --- */
+        #contact {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #1a2533 100%);
+            color: var(--light-gray);
+            text-align: center;
+        }
+
+        #contact h2 {
+            color: var(--white);
+        }
+
+        #contact h2::after {
+            background-color: var(--white);
+        }
+
+        #contact p {
+            color: #bdc3c7;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+        }
+        #contact p:last-of-type { /* Adjust margin for button spacing */
+             margin-bottom: 2rem;
+        }
+
+        #contact .cta-button {
+            background-color: var(--white);
+            color: var(--secondary-color);
+            /* margin-top: 20px; No longer needed with adjusted p margin */
+        }
+
+        #contact .cta-button:hover {
+            background-color: var(--light-gray);
+            color: var(--primary-dark); /* Darken text on hover */
+        }
+
+        #contact .location-note {
+            margin-top: 3rem; /* Increase space above location note */
+            font-size: 1rem;
+            color: #95a5a6;
+            margin-bottom: 0; /* Remove bottom margin */
+        }
+
+        /* --- Footer Styles --- */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            background-color: var(--secondary-color);
+        }
+
+        footer p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            color: var(--light-gray);
+        }
+
+        footer .social-links {
+            margin-bottom: 20px;
+        }
+
+        footer .social-links a {
+            color: var(--light-gray);
+            font-size: 1.5rem;
+            margin: 0 12px; /* Slightly more space */
+            transition: var(--transition);
+            text-decoration: none; /* Ensure no underline */
+            display: inline-block; /* Ensure proper spacing */
+        }
+
+        footer .social-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px); /* Add slight hover effect */
+        }
+
+        /* --- Cookie Consent Banner Styles --- */
+        .cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 90%;
+            width: 400px;
+            background-color: var(--white);
+            padding: 25px; /* Increased padding */
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: none; /* Initially hidden, shown via JS */
+            opacity: 0; /* For fade-in effect */
+            transition: opacity 0.5s ease;
+        }
+        .cookie-consent.visible {
+             display: block;
+             opacity: 1;
+        }
+
+        .cookie-consent p {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: var(--text-color); /* Use standard text color */
+            line-height: 1.5;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 10px; /* Add margin above buttons */
+        }
+
+        .cookie-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .accept-cookies {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        .accept-cookies:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .reject-cookies {
+            background-color: var(--light-gray);
+            color: var(--text-color);
+            border: 1px solid #ccc; /* Add subtle border */
+        }
+        .reject-cookies:hover {
+            background-color: #ddd; /* Darken slightly on hover */
+        }
+
+        /* --- Back to Top Button Styles --- */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex; /* Use flexbox for centering */
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease, transform 0.3s ease; /* Combined transitions */
+            z-index: 99;
+            text-decoration: none; /* Ensure no underline */
+            border: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+
+        /* --- Responsive Styles --- */
+        @media (max-width: 992px) {
+            /* --- Navigation adjustments --- */
+            nav ul li {
+                margin-left: 15px;
+            }
+
+            /* --- Section padding --- */
+            section {
+                padding: 60px 0;
+            }
+
+            /* --- Hero adjustments --- */
+            #hero {
+                padding: 100px 0;
+            }
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+
+             /* --- Focus Grid --- */
+             #focus .focus-grid {
+                  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjust minmax */
+             }
+        }
+
+        @media (max-width: 768px) {
+            /* --- Mobile Navigation --- */
+            .mobile-menu-btn {
+                display: block; /* Show hamburger icon */
+            }
+
+            nav ul {
+                position: absolute;
+                top: 100%; /* Position below the navbar */
+                left: 0;
+                right: 0;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 10px 0; /* Adjusted padding */
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                display: none; /* Hidden by default */
+                max-height: 0; /* For smooth transition */
+                overflow: hidden; /* Hide content during transition */
+                transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            }
+
+            nav ul.show {
+                display: flex; /* Use flex for alignment */
+                max-height: 500px; /* Allow menu to expand */
+                padding: 20px 0; /* Restore padding when shown */
+            }
+
+            nav ul li {
+                margin: 0; /* Remove left margin */
+                width: 100%; /* Full width list items */
+                text-align: center;
+            }
+            nav ul li a {
+                 display: block; /* Make link fill the list item */
+                 padding: 12px 20px; /* Add padding for easier clicking */
+                 border-bottom: 1px solid var(--light-gray);
+            }
+             nav ul li:last-child a {
+                 border-bottom: none; /* Remove border on last item */
+             }
+             nav ul li a::after {
+                  display: none; /* Hide underline effect on mobile menu */
+             }
+
+            /* --- Hero adjustments --- */
+            #hero h1 {
+                font-size: 2.2rem;
+            }
+            #hero .sub-headline {
+                font-size: 1.1rem;
+            }
+            #hero .tagline {
+                font-size: 1.3rem;
+            }
+
+            /* --- Section heading adjustments --- */
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            /* --- CTA button adjustments --- */
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            /* --- About core adjustments --- */
+            #about .about-core {
+                padding: 25px;
+            }
+
+             /* --- Focus Grid --- */
+             #focus .focus-grid {
+                  grid-template-columns: 1fr; /* Stack items */
+                  gap: 20px;
+             }
+
+            /* --- Approach List adjustments --- */
+            #approach ol li {
+                 padding-left: 55px; /* Adjust padding */
+            }
+            #approach ol li::before {
+                 width: 35px; /* Adjust counter size */
+                 height: 35px;
+                 font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            /* --- Hero adjustments --- */
+            #hero {
+                padding: 80px 0;
+            }
+            #hero h1 {
+                font-size: 1.8rem;
+            }
+            #hero .sub-headline {
+                font-size: 1rem;
+            }
+            #hero .tagline {
+                font-size: 1.2rem;
+            }
+            #hero .optional-addition {
+                font-size: 0.9rem;
+            }
+
+            /* --- Section heading adjustments --- */
+            section h2 {
+                font-size: 1.6rem;
+            }
+            section h3 {
+                font-size: 1.3rem;
+            }
+
+            /* --- About core adjustments --- */
+            #about .about-core p {
+                font-size: 1rem;
+            }
+
+            /* --- Approach List adjustments --- */
+            #approach ol li {
+                padding-left: 45px;
+            }
+            #approach ol li::before {
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+
+            /* --- Strategy Model adjustments --- */
+            #strategy .strategy-model {
+                 padding: 25px;
+            }
+            #strategy .strategy-model h4 {
+                font-size: 1.2rem;
+            }
+
+            /* --- Back to Top Button adjustments --- */
+            .back-to-top {
+                right: 20px;
+                bottom: 20px;
+                width: 45px; /* Slightly larger */
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            /* --- Cookie Consent Banner --- */
+            .cookie-consent {
+                 width: calc(100% - 40px); /* Nearly full width */
+                 bottom: 10px;
+                 padding: 20px;
+            }
+            .cookie-buttons {
+                 flex-direction: column; /* Stack buttons on small screens */
+                 gap: 8px;
+            }
+            .cookie-btn {
+                 width: 100%; /* Full width buttons */
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Exceed Growth Partners</h1>
-    <p>We partner with business leaders, investors, and founders to drive growth, market expansion, and long-term value creation. Our team combines deep operational expertise with strategic guidance to help organizations scale and thrive in rapidly evolving markets.</p>
-    <p class="contact">Let’s talk. <br> team@exceedgrowthpartners.com</p>
-    <p>Miami, FL 33133 <br> © 2025 Exceed Growth Partners</p>
+
+    <nav id="navbar">
+        <div class="container">
+            <a href="#hero" class="logo">Exceed Growth Partners</a>
+            <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">☰</button>
+            <ul id="nav-menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#approach">Approach</a></li>
+                <li><a href="#focus">Focus</a></li>
+                <li><a href="#strategy">Strategy</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="container">
+            <h1>Partnering with B2B Services Leaders for Long-Term Growth</h1>
+            <p class="sub-headline">Exceed Growth Partners acquires and partners with exceptional B2B services companies, providing operational expertise and strategic resources to build enduring value.</p>
+            <p class="tagline">Accelerating Potential. Building Enduring Businesses.</p>
+            <p class="optional-addition">We seek to be the preferred long-term partner for founders and owners navigating their next stage of growth or transition.</p>
+            <a href="#focus" class="cta-button">Explore Partnership</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>A Long-Term Partner Focused on Enduring Value</h2>
+            <div class="about-core">
+                <p><strong>Exceed Growth Partners exists to transform B2B services companies into industry leaders. We bring more than just capital—we offer hands-on guidance and a deep understanding of what drives long-term success in service-based businesses. Our approach is built on close collaboration with founders and leadership teams, smart strategies rooted in real-world experience, and an unwavering focus on achieving sustainable, scalable growth. We're not in it for quick wins; we're here to amplify your vision and help build a business that endures.</strong></p>
+            </div>
+            <p>Founded on deep operational and strategic experience, Exceed provides the dedicated partnership and expertise necessary to navigate growth and build lasting enterprises, primarily within the B2B services sector we know best.</p>
+        </div>
+    </section>
+
+    <section id="approach">
+        <div class="container">
+            <h2>Partnership Beyond the Transaction</h2>
+            <p>Our involvement extends far beyond providing capital. We believe in building genuine partnerships rooted in shared goals, mutual respect, and a long-term vision for success. Our approach emphasizes:</p>
+            <ol>
+                <li>
+                    <strong>Operational Collaboration:</strong> We leverage our significant operating experience to work alongside management teams, identifying opportunities to enhance efficiency, implement scalable best practices, invest in technology, and drive profitable growth.
+                </li>
+                <li>
+                    <strong>Strategic Guidance:</strong> Exceed provides support in refining long-term strategy, exploring new market opportunities, strengthening go-to-market execution, and navigating key decisions to ensure sustainable competitive advantage.
+                </li>
+                <li>
+                    <strong>Long-Term Perspective:</strong> As patient partners, we focus on building enduring value. We support strategic investments in people, processes, and technology that are essential for resilience and long-term market leadership, fully aligning with the vision of founders and existing leadership.
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="focus">
+        <div class="container">
+            <h2>Our Investment Focus</h2>
+            <p>Exceed Growth Partners concentrates primarily on acquiring and investing in established <strong>B2B services</strong> companies where our operational experience and strategic approach can drive significant value. Our deep understanding of service-based models allows us to be effective partners in this sector.</p>
+
+            <div class="opportunistic-note">
+                <p><strong>Opportunistic Investments:</strong> While our core expertise and primary focus lie in B2B Services, <strong>we opportunistically pursue investments in profitable, well-managed small businesses across other select industries</strong> where our operational approach and partnership model can foster significant growth and enduring value, typically through our Direct Investment strategy.</p>
+            </div>
+
+            <h3>Ideal Attributes:</h3>
+            <div class="focus-grid">
+                <div class="focus-item">
+                    <h4>Target Companies</h4>
+                    <p>Profitable B2B services businesses with $1M+ EBITDA, strong margins, and established market presence. We selectively consider profitable businesses outside B2B services where our operational expertise applies.</p>
+                </div>
+                <div class="focus-item">
+                    <h4>Growth Potential</h4>
+                    <p>Companies with demonstrated growth and clear opportunities for operational improvement and market expansion.</p>
+                </div>
+                <div class="focus-item">
+                    <h4>Recurring Revenue</h4>
+                    <p>Business models featuring predictable, recurring revenue streams with diverse customer bases (no client >20% of revenue).</p>
+                </div>
+                <div class="focus-item">
+                    <h4>Management</h4>
+                    <p>Strong existing leadership teams open to partnership and strategic guidance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="strategy">
+        <div class="container">
+            <h2>Our Flexible Strategy</h2>
+            <p>Exceed Growth Partners provides tailored capital solutions combined with deep operational expertise to support the growth and transition of compelling B2B services companies. We recognize that every business situation is unique, and our flexible approach allows us to structure partnerships that best align with the specific objectives of owners, management teams, and financing partners. Our strategy typically involves two primary models:</p>
+
+            <div class="strategy-model">
+                <h4>1. Direct Investments & Control Partnerships</h4>
+                <p><strong>Focus:</strong> For select profitable companies, <strong>primarily within B2B services but opportunistically in other sectors where we see a strong fit,</strong> Exceed seeks to be the sole or lead equity partner. This often involves companies in the lower middle market where our hands-on approach can make a significant impact. This typically involves acquiring a majority interest, providing a thoughtful transition path for owners, and partnering closely with existing leadership teams or helping recruit new talent.</p>
+                <p><strong>Approach:</strong> Our emphasis is on providing patient, long-term capital combined with hands-on operational support. We collaborate actively with management to drive sustainable growth, implement scalable processes, enhance efficiency, and build upon the company's established foundation and legacy.</p>
+            </div>
+
+             <div class="strategy-model">
+                <h4>2. Strategic Co-Investments & Advisory</h4>
+                <p><strong>Focus:</strong> In situations typically involving larger companies or those already partnered with private equity firms, venture capital groups, or family offices <strong>(generally within our core B2B services focus areas)</strong>, Exceed pursues strategic co-investment and advisory opportunities.</p>
+                <p><strong>Approach:</strong> We earn valuable investment rights alongside lead sponsors by contributing distinct strategic or operational value – often related to our expertise in go-to-market acceleration, technology enablement, or specific sector insights. This model allows portfolio companies and their lead investors to gain immediate access to Exceed's targeted expertise, accelerating key value creation initiatives and enhancing operational execution. It provides a powerful combination of lead sponsor capital resources and specialized, hands-on support from Exceed.</p>
+            </div>
+
+            <p><strong>Conclusion:</strong> Through both direct investments and strategic co-investments, Exceed Growth Partners functions as a dedicated, operationally-focused capital partner committed to building enduring value within the B2B services sector and beyond.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Considering the Next Chapter for Your Business?</h2>
+            <p>If you are a founder or owner of a successful B2B services company – or lead a profitable business in another sector where a dedicated, operational partner could drive significant growth – and are exploring options for capital, strategic partnership, or ownership transition, Exceed Growth Partners offers a unique, operator-informed, long-term approach.</p>
+            <p>We invite you to contact us for a confidential discussion regarding your objectives and how Exceed might be the right partner for your company's future.</p>
+             <a href="mailto:team@exceedgrowthpartners.com?subject=Partnership%20Inquiry%20from%20Website" class="cta-button">Initiate Discussion</a>
+            <p class="location-note">Our firm is based in Miami, Florida.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            </div>
+            <p>&copy; <span id="currentYear"></span> Exceed Growth Partners. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div class="cookie-consent" id="cookieConsent">
+        <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. <a href="/privacy-policy" style="color:var(--primary-color);text-decoration:underline;">Learn More</a></p> <div class="cookie-buttons">
+            <button class="cookie-btn reject-cookies" id="rejectCookies">Reject</button>
+            <button class="cookie-btn accept-cookies" id="acceptCookies">Accept</button>
+        </div>
+    </div>
+
+    <a href="#hero" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
+
+    <script>
+      // Wrap script in an immediately invoked function expression (IIFE)
+      // to avoid polluting the global scope.
+      (function() {
+        'use strict'; // Enable strict mode
+
+        // --- Elements ---
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+        const backToTopButton = document.getElementById('backToTop');
+        const cookieConsentBanner = document.getElementById('cookieConsent');
+        const acceptCookiesBtn = document.getElementById('acceptCookies');
+        const rejectCookiesBtn = document.getElementById('rejectCookies');
+        const yearSpan = document.getElementById('currentYear');
+        const navbar = document.getElementById('navbar');
+        const allAnchorLinks = document.querySelectorAll('a[href^="#"]');
+
+        // --- Functions ---
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+          const isExpanded = navMenu.classList.toggle('show');
+          mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+        }
+
+        // Back to top button visibility
+        function handleScroll() {
+          // Back to top visibility
+          if (window.scrollY > 300) {
+            backToTopButton.classList.add('visible');
+          } else {
+            backToTopButton.classList.remove('visible');
+          }
+
+          // Navbar style change on scroll
+          if (window.scrollY > 50) {
+            navbar.style.padding = '0.7rem 0';
+            navbar.style.boxShadow = '0 2px 15px rgba(0,0,0,0.15)';
+          } else {
+            navbar.style.padding = '1rem 0';
+            navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+          }
+        }
+
+        // Smooth scroll implementation
+        function smoothScrollToTarget(e) {
+           // Allow default behavior for non-anchor links or the back-to-top button's direct href
+           if (!this.getAttribute('href').startsWith('#') || this.id === 'backToTop') {
+               // Let the browser handle the #hero jump for back-to-top
+               // If you want JS smooth scroll *even* for back-to-top, remove this condition
+               // and ensure the back-to-top href="#" doesn't conflict.
+               return;
+           }
+
+           e.preventDefault(); // Prevent default jump only for handled anchors
+
+           const targetId = this.getAttribute('href');
+           // Check if it's more than just "#"
+           if (targetId.length > 1) {
+               const targetElement = document.querySelector(targetId);
+               if (targetElement) {
+                   // Close mobile menu if open and the click is on a menu item
+                   if (navMenu.classList.contains('show') && this.closest('#nav-menu')) {
+                       toggleMobileMenu();
+                   }
+
+                   // Calculate scroll position (consider fixed header height if needed)
+                   const headerOffset = navbar.offsetHeight;
+                   const elementPosition = targetElement.getBoundingClientRect().top;
+                   const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                   window.scrollTo({
+                       top: offsetPosition,
+                       behavior: 'smooth'
+                   });
+               } else {
+                   console.warn('Smooth scroll target not found:', targetId);
+               }
+           }
+        }
+
+
+        // Cookie Consent Logic
+        function handleCookieConsent(accepted) {
+          cookieConsentBanner.classList.remove('visible'); // Hide banner immediately
+          // **Persistence Logic:**
+          // Use localStorage (simple) or actual cookies (more robust)
+          // Example using localStorage:
+          localStorage.setItem('cookieConsentGiven', 'true');
+          if (accepted) {
+             localStorage.setItem('cookieConsentAccepted', 'true');
+             console.log('Cookies accepted by user.');
+             // Add any logic needed when cookies are accepted (e.g., load analytics)
+          } else {
+             localStorage.setItem('cookieConsentAccepted', 'false');
+             console.log('Cookies rejected by user.');
+             // Add any logic needed when cookies are rejected (e.g., disable tracking)
+          }
+        }
+
+        function checkCookieConsent() {
+          const consentGiven = localStorage.getItem('cookieConsentGiven');
+          if (!consentGiven) {
+            // Show banner after a delay if consent hasn't been recorded
+            setTimeout(() => {
+              cookieConsentBanner.classList.add('visible');
+            }, 2000); // Delay showing banner
+          } else {
+             console.log('Cookie consent already handled.');
+             // Optional: if consent was given & accepted, run acceptance logic now
+             // const accepted = localStorage.getItem('cookieConsentAccepted') === 'true';
+             // if (accepted) { /* Load analytics etc. */ }
+          }
+        }
+
+        // Set current year in footer
+        function setCurrentYear() {
+          if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear();
+          }
+        }
+
+        // --- Event Listeners ---
+        if (mobileMenuBtn && navMenu) {
+          mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        }
+
+        if (backToTopButton) {
+          // Scroll listener handles visibility
+          // Smooth scroll listener handles the click
+        }
+
+        if (cookieConsentBanner && acceptCookiesBtn && rejectCookiesBtn) {
+          acceptCookiesBtn.addEventListener('click', () => handleCookieConsent(true));
+          rejectCookiesBtn.addEventListener('click', () => handleCookieConsent(false));
+        }
+
+        // Attach smooth scroll to all relevant anchor links
+        allAnchorLinks.forEach(anchor => {
+            anchor.addEventListener('click', smoothScrollToTarget);
+        });
+
+        // Global scroll listener
+        window.addEventListener('scroll', handleScroll);
+
+        // --- Initializations ---
+        document.addEventListener('DOMContentLoaded', () => {
+          setCurrentYear();
+          checkCookieConsent();
+          handleScroll(); // Run once on load to set initial navbar style if already scrolled
+        });
+
+      })(); // End of IIFE
+
+    </script>
+
 </body>
 </html>
