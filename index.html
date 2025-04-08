@@ -30,12 +30,15 @@
         }
 
         /* --- Base Styles --- */
+        html {
+             scroll-behavior: smooth; /* Apply smooth scroll globally */
+        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--background);
-            scroll-behavior: smooth; /* Note: JS handles smooth scroll for anchors for better control */
+            /* scroll-behavior: smooth; -- Moved to html element */
         }
 
         .container {
@@ -61,24 +64,22 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            transition: padding 0.3s ease, box-shadow 0.3s ease; /* Refined transition */
+            transition: padding 0.3s ease, box-shadow 0.3s ease;
         }
 
         nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative; /* Added for absolute positioning of menu */
+            position: relative;
         }
 
         nav .logo {
-            /* font-size, font-weight, color removed as image is used */
             text-decoration: none;
             transition: var(--transition);
             line-height: 0; /* Helps remove potential extra space with image */
         }
 
-        /* --- NEW --- Style for the logo image */
         nav .logo img {
             height: 40px; /* <<<--- ADJUST THIS VALUE (e.g., 35px, 45px, 50px) */
             width: auto;  /* Maintain aspect ratio */
@@ -93,6 +94,7 @@
         nav ul {
             list-style: none;
             display: flex;
+            align-items: center; /* Align nav items vertically */
         }
 
         nav ul li {
@@ -106,6 +108,7 @@
             transition: var(--transition);
             position: relative;
             padding-bottom: 5px;
+            white-space: nowrap; /* Prevent nav items wrapping */
         }
 
         nav ul li a:hover {
@@ -131,10 +134,10 @@
             display: none;
             background: none;
             border: none;
-            font-size: 1.8rem; /* Slightly larger for touch */
+            font-size: 1.8rem;
             color: var(--primary-color);
             cursor: pointer;
-            padding: 5px; /* Add padding for easier tapping */
+            padding: 5px;
             line-height: 1;
         }
 
@@ -181,11 +184,11 @@
         }
 
         ul, ol {
-            margin-left: 20px; /* Default list indent */
-            padding-left: 0; /* Remove browser default padding if margin is used */
+            margin-left: 20px;
+            padding-left: 0;
         }
 
-        strong { /* Consistent strong tag styling */
+        strong {
             font-weight: 600;
             color: var(--secondary-color);
         }
@@ -197,15 +200,13 @@
             padding: 120px 0;
             position: relative;
             overflow: hidden;
-            border-bottom: 1px solid var(--border-color); /* Add border like other sections */
+            border-bottom: 1px solid var(--border-color);
         }
 
         #hero::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            /* Replace with your actual image path */
-            /* background: url('path/to/your/hero-background.jpg') center/cover no-repeat; */
             background: url('/api/placeholder/1200/600/business') center/cover no-repeat; /* Example placeholder */
             opacity: 0.05;
             z-index: 0;
@@ -225,7 +226,7 @@
 
         #hero .sub-headline {
             font-size: 1.3rem;
-            color: var(--secondary-color);
+            color: var(--secondary-color); /* Changed from light-text for better contrast */
             margin-bottom: 20px;
             max-width: 700px;
             margin-left: auto;
@@ -259,7 +260,7 @@
         .cta-button {
             display: inline-block;
             background-color: var(--primary-color);
-            color: var(--white);
+            color: var(--white) !important; /* Ensure text is white */
             padding: 14px 32px;
             text-decoration: none;
             border-radius: 50px;
@@ -267,15 +268,28 @@
             font-weight: 500;
             transition: var(--transition);
             box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
-            border: none; /* Ensure consistency */
-            cursor: pointer; /* Indicate clickability */
+            border: none;
+            cursor: pointer;
         }
 
         .cta-button:hover {
             background-color: var(--primary-dark);
+            color: var(--white) !important; /* Ensure text stays white */
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
         }
+         /* Specific hover for contact button */
+        #contact .cta-button {
+             background-color: var(--white);
+             color: var(--secondary-color) !important;
+        }
+         #contact .cta-button:hover {
+             background-color: var(--light-gray);
+             color: var(--primary-dark) !important;
+             transform: translateY(-3px); /* Consistent hover effect */
+             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Adjusted shadow */
+        }
+
 
         /* --- About Section Styles --- */
         #about {
@@ -299,10 +313,10 @@
         #about .about-core p {
             color: var(--text-color);
             font-size: 1.1rem;
-            margin-bottom: 0; /* Remove default margin inside this block */
+            margin-bottom: 0;
         }
         #about .about-core strong {
-             font-weight: 600; /* Ensure strong tag is bold */
+             font-weight: 600;
         }
 
         /* --- Approach Section Styles --- */
@@ -313,14 +327,14 @@
         #approach ol {
             counter-reset: approach-counter;
             list-style: none;
-            margin-left: 0; /* Override default list indent */
+            margin-left: 0;
             padding-left: 0;
         }
 
         #approach ol li {
             margin-bottom: 2rem;
             position: relative;
-            padding-left: 60px; /* Space for the counter */
+            padding-left: 60px;
             counter-increment: approach-counter;
         }
 
@@ -328,7 +342,7 @@
             content: counter(approach-counter);
             position: absolute;
             left: 0;
-            top: 0;
+            top: 0; /* Adjust if text wraps oddly: top: 5px; */
             width: 40px;
             height: 40px;
             background-color: var(--primary-color);
@@ -339,7 +353,7 @@
             justify-content: center;
             font-weight: bold;
             font-size: 1.2rem;
-            line-height: 1; /* Prevent line height issues */
+            line-height: 1;
         }
 
         /* --- Investment Focus Section Styles --- */
@@ -352,7 +366,7 @@
             border-left: 4px solid var(--accent-color);
             padding: 25px;
             margin: 30px 0;
-            border-radius: 0 6px 6px 0; /* Style the radius */
+            border-radius: 0 6px 6px 0;
         }
         #focus .opportunistic-note p {
              margin-bottom: 0;
@@ -361,7 +375,7 @@
         #focus .focus-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px; /* Slightly increased gap */
+            gap: 25px;
             margin-top: 40px;
         }
 
@@ -370,6 +384,8 @@
             padding: 25px;
             border-radius: 10px;
             transition: var(--transition);
+            display: flex; /* Use flexbox for better alignment if content varies */
+            flex-direction: column;
         }
 
         #focus .focus-item:hover {
@@ -383,7 +399,8 @@
             font-size: 1.2rem;
         }
          #focus .focus-item p {
-              margin-bottom: 0; /* Remove default margin */
+              margin-bottom: 0;
+              flex-grow: 1; /* Allows paragraphs to fill space if needed */
          }
 
         /* --- Investment Strategy Section Styles --- */
@@ -410,11 +427,11 @@
             color: var(--primary-color);
             margin-bottom: 15px;
             padding-bottom: 10px;
-            border-bottom: 2px solid var(--light-gray); /* Use light gray for contrast */
+            border-bottom: 2px solid var(--light-gray);
         }
 
         #strategy .strategy-model p:last-of-type {
-            margin-bottom: 0; /* Remove margin on last paragraph */
+            margin-bottom: 0;
         }
 
         /* --- Contact Section Styles --- */
@@ -432,33 +449,23 @@
             background-color: var(--white);
         }
 
-        #contact p {
+        #contact p { /* Style for the main paragraph */
             color: #bdc3c7;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             font-size: 1.1rem;
+            margin-bottom: 2rem; /* Default spacing for paragraphs */
         }
-        #contact p:last-of-type { /* Adjust margin for button spacing */
-             margin-bottom: 2rem;
-        }
-
-        #contact .cta-button {
-            background-color: var(--white);
-            color: var(--secondary-color);
-            /* margin-top: 20px; No longer needed with adjusted p margin */
-        }
-
-        #contact .cta-button:hover {
-            background-color: var(--light-gray);
-            color: var(--primary-dark); /* Darken text on hover */
-        }
+        /* Keep margin-bottom for the descriptive paragraph */
+        /* The .cta-button itself does not have bottom margin by default */
 
         #contact .location-note {
-            margin-top: 3rem; /* Increase space above location note */
+            /* --- ADJUSTED MARGIN-TOP HERE --- */
+            margin-top: 1.5rem; /* Reduced space above location note */
             font-size: 1rem;
             color: #95a5a6;
-            margin-bottom: 0; /* Remove bottom margin */
+            margin-bottom: 0; /* Keep no margin below */
         }
 
         /* --- Footer Styles --- */
@@ -466,31 +473,47 @@
             text-align: center;
             padding: 40px 0;
             background-color: var(--secondary-color);
+            border-top: 1px solid #445a70; /* Subtle top border */
         }
 
         footer p {
-            margin-bottom: 0;
+            margin-bottom: 10px; /* Add a little space between lines in footer */
             font-size: 0.9rem;
             color: var(--light-gray);
         }
+        footer p:last-child {
+             margin-bottom: 0;
+        }
 
         footer .social-links {
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Slightly less margin */
         }
 
         footer .social-links a {
             color: var(--light-gray);
             font-size: 1.5rem;
-            margin: 0 12px; /* Slightly more space */
+            margin: 0 12px;
             transition: var(--transition);
-            text-decoration: none; /* Ensure no underline */
-            display: inline-block; /* Ensure proper spacing */
+            text-decoration: none;
+            display: inline-block;
         }
 
         footer .social-links a:hover {
             color: var(--primary-color);
-            transform: translateY(-3px); /* Add slight hover effect */
+            transform: translateY(-3px);
         }
+         /* Example for adding actual links */
+         footer .footer-links a {
+             color: var(--light-gray);
+             text-decoration: underline;
+             margin: 0 10px;
+             font-size: 0.9rem;
+         }
+         footer .footer-links a:hover {
+             color: var(--primary-color);
+             text-decoration: none;
+         }
+
 
         /* --- Cookie Consent Banner Styles --- */
         .cookie-consent {
@@ -501,12 +524,12 @@
             max-width: 90%;
             width: 400px;
             background-color: var(--white);
-            padding: 25px; /* Increased padding */
+            padding: 25px;
             border-radius: 10px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.2);
             z-index: 1000;
-            display: none; /* Initially hidden, shown via JS */
-            opacity: 0; /* For fade-in effect */
+            display: none;
+            opacity: 0;
             transition: opacity 0.5s ease;
         }
         .cookie-consent.visible {
@@ -517,7 +540,7 @@
         .cookie-consent p {
             margin-bottom: 15px;
             font-size: 0.9rem;
-            color: var(--text-color); /* Use standard text color */
+            color: var(--text-color);
             line-height: 1.5;
         }
 
@@ -525,7 +548,7 @@
             display: flex;
             justify-content: flex-end;
             gap: 10px;
-            margin-top: 10px; /* Add margin above buttons */
+            margin-top: 10px;
         }
 
         .cookie-btn {
@@ -549,10 +572,10 @@
         .reject-cookies {
             background-color: var(--light-gray);
             color: var(--text-color);
-            border: 1px solid #ccc; /* Add subtle border */
+            border: 1px solid #ccc;
         }
         .reject-cookies:hover {
-            background-color: #ddd; /* Darken slightly on hover */
+            background-color: #ddd;
         }
 
         /* --- Back to Top Button Styles --- */
@@ -565,7 +588,7 @@
             background-color: var(--primary-color);
             color: var(--white);
             border-radius: 50%;
-            display: flex; /* Use flexbox for centering */
+            display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
@@ -573,9 +596,9 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.2);
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease, transform 0.3s ease; /* Combined transitions */
+            transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
             z-index: 99;
-            text-decoration: none; /* Ensure no underline */
+            text-decoration: none;
             border: none;
         }
 
@@ -591,189 +614,58 @@
 
         /* --- Responsive Styles --- */
         @media (max-width: 992px) {
-            /* --- Navigation adjustments --- */
-            nav ul li {
-                 margin-left: 15px;
-            }
-
-            /* --- Section padding --- */
-            section {
-                 padding: 60px 0;
-            }
-
-            /* --- Hero adjustments --- */
-            #hero {
-                 padding: 100px 0;
-            }
-            #hero h1 {
-                 font-size: 2.5rem;
-            }
-
-             /* --- Focus Grid --- */
-             #focus .focus-grid {
-                  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Adjust minmax */
-             }
+            nav ul li { margin-left: 15px; }
+            section { padding: 60px 0; }
+            #hero { padding: 100px 0; }
+            #hero h1 { font-size: 2.5rem; }
+            #focus .focus-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
         }
 
         @media (max-width: 768px) {
-            /* --- Mobile Navigation --- */
-            .mobile-menu-btn {
-                 display: block; /* Show hamburger icon */
-            }
-
+            .mobile-menu-btn { display: block; }
             nav ul {
-                 position: absolute;
-                 top: 100%; /* Position below the navbar */
-                 left: 0;
-                 right: 0;
-                 background-color: var(--white);
-                 flex-direction: column;
-                 padding: 10px 0; /* Adjusted padding */
-                 box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-                 display: none; /* Hidden by default */
-                 max-height: 0; /* For smooth transition */
-                 overflow: hidden; /* Hide content during transition */
-                 transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+                position: absolute; top: 100%; left: 0; right: 0;
+                background-color: var(--white); flex-direction: column;
+                padding: 10px 0; box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                display: none; max-height: 0; overflow: hidden;
+                transition: max-height 0.3s ease-out, padding 0.3s ease-out;
             }
-
-            nav ul.show {
-                 display: flex; /* Use flex for alignment */
-                 max-height: 500px; /* Allow menu to expand */
-                 padding: 20px 0; /* Restore padding when shown */
-            }
-
-            nav ul li {
-                 margin: 0; /* Remove left margin */
-                 width: 100%; /* Full width list items */
-                 text-align: center;
-            }
+            nav ul.show { display: flex; max-height: 500px; padding: 20px 0; }
+            nav ul li { margin: 0; width: 100%; text-align: center; }
             nav ul li a {
-                 display: block; /* Make link fill the list item */
-                 padding: 12px 20px; /* Add padding for easier clicking */
-                 border-bottom: 1px solid var(--light-gray);
+                display: block; padding: 12px 20px;
+                border-bottom: 1px solid var(--light-gray);
             }
-             nav ul li:last-child a {
-                  border-bottom: none; /* Remove border on last item */
-             }
-             nav ul li a::after {
-                  display: none; /* Hide underline effect on mobile menu */
-             }
-
-            /* --- Hero adjustments --- */
-            #hero h1 {
-                 font-size: 2.2rem;
-            }
-            #hero .sub-headline {
-                 font-size: 1.1rem;
-            }
-            #hero .tagline {
-                 font-size: 1.3rem;
-            }
-
-            /* --- Section heading adjustments --- */
-            section h2 {
-                 font-size: 1.8rem;
-            }
-
-            /* --- CTA button adjustments --- */
-            .cta-button {
-                 padding: 12px 25px;
-                 font-size: 1rem;
-            }
-
-            /* --- About core adjustments --- */
-            #about .about-core {
-                 padding: 25px;
-            }
-
-             /* --- Focus Grid --- */
-             #focus .focus-grid {
-                  grid-template-columns: 1fr; /* Stack items */
-                  gap: 20px;
-             }
-
-            /* --- Approach List adjustments --- */
-            #approach ol li {
-                  padding-left: 55px; /* Adjust padding */
-            }
-            #approach ol li::before {
-                  width: 35px; /* Adjust counter size */
-                  height: 35px;
-                  font-size: 1.1rem;
-            }
+             nav ul li:last-child a { border-bottom: none; }
+             nav ul li a::after { display: none; }
+            #hero h1 { font-size: 2.2rem; }
+            #hero .sub-headline { font-size: 1.1rem; }
+            #hero .tagline { font-size: 1.3rem; }
+            section h2 { font-size: 1.8rem; }
+            .cta-button { padding: 12px 25px; font-size: 1rem; }
+            #about .about-core { padding: 25px; }
+            #focus .focus-grid { grid-template-columns: 1fr; gap: 20px; }
+            #approach ol li { padding-left: 55px; }
+            #approach ol li::before { width: 35px; height: 35px; font-size: 1.1rem; }
         }
 
         @media (max-width: 576px) {
-            /* --- Hero adjustments --- */
-            #hero {
-                 padding: 80px 0;
-            }
-            #hero h1 {
-                 font-size: 1.8rem;
-            }
-            #hero .sub-headline {
-                 font-size: 1rem;
-            }
-            #hero .tagline {
-                 font-size: 1.2rem;
-            }
-            #hero .optional-addition {
-                 font-size: 0.9rem;
-            }
-
-            /* --- Section heading adjustments --- */
-            section h2 {
-                 font-size: 1.6rem;
-            }
-            section h3 {
-                 font-size: 1.3rem;
-            }
-
-            /* --- About core adjustments --- */
-            #about .about-core p {
-                 font-size: 1rem;
-            }
-
-            /* --- Approach List adjustments --- */
-            #approach ol li {
-                 padding-left: 45px;
-            }
-            #approach ol li::before {
-                 width: 30px;
-                 height: 30px;
-                 font-size: 1rem;
-            }
-
-            /* --- Strategy Model adjustments --- */
-            #strategy .strategy-model {
-                 padding: 25px;
-            }
-            #strategy .strategy-model h4 {
-                 font-size: 1.2rem;
-            }
-
-            /* --- Back to Top Button adjustments --- */
-            .back-to-top {
-                 right: 20px;
-                 bottom: 20px;
-                 width: 45px; /* Slightly larger */
-                 height: 45px;
-                 font-size: 1.3rem;
-            }
-
-            /* --- Cookie Consent Banner --- */
-            .cookie-consent {
-                 width: calc(100% - 40px); /* Nearly full width */
-                 bottom: 10px;
-                 padding: 20px;
-            }
-            .cookie-buttons {
-                 flex-direction: column; /* Stack buttons on small screens */
-                 gap: 8px;
-            }
-            .cookie-btn {
-                 width: 100%; /* Full width buttons */
-            }
+            #hero { padding: 80px 0; }
+            #hero h1 { font-size: 1.8rem; }
+            #hero .sub-headline { font-size: 1rem; }
+            #hero .tagline { font-size: 1.2rem; }
+            #hero .optional-addition { font-size: 0.9rem; }
+            section h2 { font-size: 1.6rem; }
+            section h3 { font-size: 1.3rem; }
+            #about .about-core p { font-size: 1rem; }
+            #approach ol li { padding-left: 45px; }
+            #approach ol li::before { width: 30px; height: 30px; font-size: 1rem; }
+            #strategy .strategy-model { padding: 25px; }
+            #strategy .strategy-model h4 { font-size: 1.2rem; }
+            .back-to-top { right: 20px; bottom: 20px; width: 45px; height: 45px; font-size: 1.3rem; }
+            .cookie-consent { width: calc(100% - 40px); bottom: 10px; padding: 20px; }
+            .cookie-buttons { flex-direction: column; gap: 8px; }
+            .cookie-btn { width: 100%; }
         }
     </style>
 </head>
@@ -887,18 +779,24 @@
 
     <section id="contact">
         <div class="container">
-            <h2>Connect With Us</h2> <p>We are actively seeking partnerships with exceptional B2B services companies. If you are a business owner considering a transition, a management team seeking a growth partner, or an intermediary representing an opportunity, we look forward to hearing from you.</p>
-            <a href="#contact" class="cta-button">Contact Us</a> <p class="location-note">Based in Miami, FL | Investing Nationwide</p>
+            <h2>Connect With Us</h2>
+            <p>We are actively seeking partnerships with exceptional B2B services companies. If you are a business owner considering a transition, a management team seeking a growth partner, or an intermediary representing a potential opportunity, we would welcome the chance to connect.</p>
+             <a href="mailto:team@exceedgrowthpartners.com?subject=Partnership%20Inquiry" class="cta-button">Contact Us</a>
+            <p class="location-note">Based in Miami, FL | Investing Nationwide</p>
         </div>
     </section>
 
     <footer>
         <div class="container">
              <p>&copy; 2025 Exceed Growth Partners. All Rights Reserved.</p>
-             </div>
+             <p class="footer-links">
+                 </p>
+        </div>
     </footer>
 
-    <a href="#hero" class="back-to-top" aria-label="Back to top">↑</a> <div class="cookie-consent" id="cookieConsentBanner">
+    <a href="#hero" class="back-to-top" aria-label="Back to top">↑</a>
+
+    <div class="cookie-consent" id="cookieConsentBanner">
         <p>This website uses cookies to ensure you get the best experience. By continuing to use this site, you agree to our use of cookies.</p>
         <div class="cookie-buttons">
             <button class="cookie-btn reject-cookies" id="rejectCookies">Decline</button>
@@ -910,7 +808,6 @@
         // --- Basic Smooth Scroll for Nav Links ---
         document.querySelectorAll('nav ul li a[href^="#"], .cta-button[href^="#"], .back-to-top[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                // Prevent default only if it's a hash link on the same page
                 if (this.hash !== "") {
                     const targetElement = document.querySelector(this.hash);
                     if (targetElement) {
@@ -920,9 +817,14 @@
                          if (navMenu && navMenu.classList.contains('show')) {
                             navMenu.classList.remove('show');
                             document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded', 'false');
+                            document.querySelector('.mobile-menu-btn').innerHTML = '☰'; // Reset hamburger icon
                          }
                          // Scroll smoothly
-                         targetElement.scrollIntoView({ behavior: 'smooth' });
+                         const offsetTop = targetElement.offsetTop; // Consider fixed nav height later if needed
+                         window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                         });
                     }
                 }
             });
@@ -956,43 +858,45 @@
         const cookieBanner = document.getElementById('cookieConsentBanner');
         const acceptBtn = document.getElementById('acceptCookies');
         const rejectBtn = document.getElementById('rejectCookies');
-        const cookieConsentKey = 'user_cookie_consent';
+        const cookieConsentKey = 'user_cookie_consent_egp_v1'; // More specific key
 
         if (cookieBanner && acceptBtn && rejectBtn) {
-            // Check if consent already given
             const consentGiven = localStorage.getItem(cookieConsentKey);
-
             if (!consentGiven) {
-                // Timeout to prevent banner appearing instantly on load (optional)
                 setTimeout(() => {
-                   cookieBanner.classList.add('visible');
+                   if (!localStorage.getItem(cookieConsentKey)){ // Double check before showing
+                        cookieBanner.classList.add('visible');
+                   }
                 }, 1500);
             }
 
             acceptBtn.addEventListener('click', () => {
                 localStorage.setItem(cookieConsentKey, 'accepted');
                 cookieBanner.classList.remove('visible');
-                 // Optional: Add analytics tracking code activation here
+                 // NOTE: Add any analytics activation logic here if needed
             });
 
             rejectBtn.addEventListener('click', () => {
                 localStorage.setItem(cookieConsentKey, 'rejected');
                 cookieBanner.classList.remove('visible');
-                // Optional: Ensure non-essential cookies/scripts are not loaded
+                 // NOTE: Ensure any non-essential cookie logic respects this choice
             });
         }
 
         // --- Optional: Navbar shrink on scroll ---
         const navbar = document.getElementById('navbar');
         if (navbar) {
-            const initialPadding = getComputedStyle(navbar).paddingTop; // Get initial padding
+            // Use a more robust way to get initial padding if needed, or hardcode values
+            const initialPaddingTB = '0.75rem'; // Based on nav CSS
+            const shrunkPaddingTB = '0.5rem';
+
             window.addEventListener('scroll', () => {
                 if (window.pageYOffset > 50) {
-                    navbar.style.paddingTop = '0.5rem'; // Adjust shrunk padding
-                    navbar.style.paddingBottom = '0.5rem';
+                    navbar.style.paddingTop = shrunkPaddingTB;
+                    navbar.style.paddingBottom = shrunkPaddingTB;
                 } else {
-                    navbar.style.paddingTop = initialPadding;
-                    navbar.style.paddingBottom = initialPadding;
+                    navbar.style.paddingTop = initialPaddingTB;
+                    navbar.style.paddingBottom = initialPaddingTB;
                 }
             });
         }
