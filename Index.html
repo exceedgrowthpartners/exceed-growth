@@ -49,22 +49,14 @@
             text-align: center;
         }
 
-        .mb-1 {
-            margin-bottom: 0.5rem;
-        }
-
-        .mb-2 {
-            margin-bottom: 1rem;
-        }
-
-        .mb-4 {
-            margin-bottom: 2rem;
-        }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-4 { margin-bottom: 2rem; }
 
         /* --- Navigation Styles --- */
         nav {
             background-color: var(--white);
-            padding: 1rem 0;
+            padding: 0.75rem 0; /* Adjusted padding slightly for image logo */
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
@@ -80,15 +72,22 @@
         }
 
         nav .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--secondary-color);
+            /* font-size, font-weight, color removed as image is used */
             text-decoration: none;
+            transition: var(--transition);
+            line-height: 0; /* Helps remove potential extra space with image */
+        }
+
+        /* --- NEW --- Style for the logo image */
+        nav .logo img {
+            height: 40px; /* <<<--- ADJUST THIS VALUE (e.g., 35px, 45px, 50px) */
+            width: auto;  /* Maintain aspect ratio */
+            display: block; /* Prevents extra space below inline images */
             transition: var(--transition);
         }
 
-        nav .logo:hover {
-            color: var(--primary-color);
+        nav .logo:hover img {
+             opacity: 0.85; /* Example hover effect for image */
         }
 
         nav ul {
@@ -204,10 +203,7 @@
         #hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             /* Replace with your actual image path */
             /* background: url('path/to/your/hero-background.jpg') center/cover no-repeat; */
             background: url('/api/placeholder/1200/600/business') center/cover no-repeat; /* Example placeholder */
@@ -387,7 +383,7 @@
             font-size: 1.2rem;
         }
          #focus .focus-item p {
-             margin-bottom: 0; /* Remove default margin */
+              margin-bottom: 0; /* Remove default margin */
          }
 
         /* --- Investment Strategy Section Styles --- */
@@ -597,20 +593,20 @@
         @media (max-width: 992px) {
             /* --- Navigation adjustments --- */
             nav ul li {
-                margin-left: 15px;
+                 margin-left: 15px;
             }
 
             /* --- Section padding --- */
             section {
-                padding: 60px 0;
+                 padding: 60px 0;
             }
 
             /* --- Hero adjustments --- */
             #hero {
-                padding: 100px 0;
+                 padding: 100px 0;
             }
             #hero h1 {
-                font-size: 2.5rem;
+                 font-size: 2.5rem;
             }
 
              /* --- Focus Grid --- */
@@ -622,34 +618,34 @@
         @media (max-width: 768px) {
             /* --- Mobile Navigation --- */
             .mobile-menu-btn {
-                display: block; /* Show hamburger icon */
+                 display: block; /* Show hamburger icon */
             }
 
             nav ul {
-                position: absolute;
-                top: 100%; /* Position below the navbar */
-                left: 0;
-                right: 0;
-                background-color: var(--white);
-                flex-direction: column;
-                padding: 10px 0; /* Adjusted padding */
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-                display: none; /* Hidden by default */
-                max-height: 0; /* For smooth transition */
-                overflow: hidden; /* Hide content during transition */
-                transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+                 position: absolute;
+                 top: 100%; /* Position below the navbar */
+                 left: 0;
+                 right: 0;
+                 background-color: var(--white);
+                 flex-direction: column;
+                 padding: 10px 0; /* Adjusted padding */
+                 box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                 display: none; /* Hidden by default */
+                 max-height: 0; /* For smooth transition */
+                 overflow: hidden; /* Hide content during transition */
+                 transition: max-height 0.3s ease-out, padding 0.3s ease-out;
             }
 
             nav ul.show {
-                display: flex; /* Use flex for alignment */
-                max-height: 500px; /* Allow menu to expand */
-                padding: 20px 0; /* Restore padding when shown */
+                 display: flex; /* Use flex for alignment */
+                 max-height: 500px; /* Allow menu to expand */
+                 padding: 20px 0; /* Restore padding when shown */
             }
 
             nav ul li {
-                margin: 0; /* Remove left margin */
-                width: 100%; /* Full width list items */
-                text-align: center;
+                 margin: 0; /* Remove left margin */
+                 width: 100%; /* Full width list items */
+                 text-align: center;
             }
             nav ul li a {
                  display: block; /* Make link fill the list item */
@@ -657,7 +653,7 @@
                  border-bottom: 1px solid var(--light-gray);
             }
              nav ul li:last-child a {
-                 border-bottom: none; /* Remove border on last item */
+                  border-bottom: none; /* Remove border on last item */
              }
              nav ul li a::after {
                   display: none; /* Hide underline effect on mobile menu */
@@ -665,29 +661,29 @@
 
             /* --- Hero adjustments --- */
             #hero h1 {
-                font-size: 2.2rem;
+                 font-size: 2.2rem;
             }
             #hero .sub-headline {
-                font-size: 1.1rem;
+                 font-size: 1.1rem;
             }
             #hero .tagline {
-                font-size: 1.3rem;
+                 font-size: 1.3rem;
             }
 
             /* --- Section heading adjustments --- */
             section h2 {
-                font-size: 1.8rem;
+                 font-size: 1.8rem;
             }
 
             /* --- CTA button adjustments --- */
             .cta-button {
-                padding: 12px 25px;
-                font-size: 1rem;
+                 padding: 12px 25px;
+                 font-size: 1rem;
             }
 
             /* --- About core adjustments --- */
             #about .about-core {
-                padding: 25px;
+                 padding: 25px;
             }
 
              /* --- Focus Grid --- */
@@ -698,54 +694,54 @@
 
             /* --- Approach List adjustments --- */
             #approach ol li {
-                 padding-left: 55px; /* Adjust padding */
+                  padding-left: 55px; /* Adjust padding */
             }
             #approach ol li::before {
-                 width: 35px; /* Adjust counter size */
-                 height: 35px;
-                 font-size: 1.1rem;
+                  width: 35px; /* Adjust counter size */
+                  height: 35px;
+                  font-size: 1.1rem;
             }
         }
 
         @media (max-width: 576px) {
             /* --- Hero adjustments --- */
             #hero {
-                padding: 80px 0;
+                 padding: 80px 0;
             }
             #hero h1 {
-                font-size: 1.8rem;
+                 font-size: 1.8rem;
             }
             #hero .sub-headline {
-                font-size: 1rem;
+                 font-size: 1rem;
             }
             #hero .tagline {
-                font-size: 1.2rem;
+                 font-size: 1.2rem;
             }
             #hero .optional-addition {
-                font-size: 0.9rem;
+                 font-size: 0.9rem;
             }
 
             /* --- Section heading adjustments --- */
             section h2 {
-                font-size: 1.6rem;
+                 font-size: 1.6rem;
             }
             section h3 {
-                font-size: 1.3rem;
+                 font-size: 1.3rem;
             }
 
             /* --- About core adjustments --- */
             #about .about-core p {
-                font-size: 1rem;
+                 font-size: 1rem;
             }
 
             /* --- Approach List adjustments --- */
             #approach ol li {
-                padding-left: 45px;
+                 padding-left: 45px;
             }
             #approach ol li::before {
-                width: 30px;
-                height: 30px;
-                font-size: 1rem;
+                 width: 30px;
+                 height: 30px;
+                 font-size: 1rem;
             }
 
             /* --- Strategy Model adjustments --- */
@@ -753,16 +749,16 @@
                  padding: 25px;
             }
             #strategy .strategy-model h4 {
-                font-size: 1.2rem;
+                 font-size: 1.2rem;
             }
 
             /* --- Back to Top Button adjustments --- */
             .back-to-top {
-                right: 20px;
-                bottom: 20px;
-                width: 45px; /* Slightly larger */
-                height: 45px;
-                font-size: 1.3rem;
+                 right: 20px;
+                 bottom: 20px;
+                 width: 45px; /* Slightly larger */
+                 height: 45px;
+                 font-size: 1.3rem;
             }
 
             /* --- Cookie Consent Banner --- */
@@ -785,7 +781,9 @@
 
     <nav id="navbar">
         <div class="container">
-            <a href="#hero" class="logo">Exceed Growth Partners</a>
+            <a href="#hero" class="logo">
+                <img src="images/exceed-logo.png" alt="Exceed Growth Partners Logo">
+            </a>
             <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">☰</button>
             <ul id="nav-menu">
                 <li><a href="#about">About</a></li>
@@ -889,188 +887,117 @@
 
     <section id="contact">
         <div class="container">
-            <h2>Considering the Next Chapter for Your Business?</h2>
-            <p>If you are a founder or owner of a successful B2B services company – or lead a profitable business in another sector where a dedicated, operational partner could drive significant growth – and are exploring options for capital, strategic partnership, or ownership transition, Exceed Growth Partners offers a unique, operator-informed, long-term approach.</p>
-            <p>We invite you to contact us for a confidential discussion regarding your objectives and how Exceed might be the right partner for your company's future.</p>
-             <a href="mailto:team@exceedgrowthpartners.com?subject=Partnership%20Inquiry%20from%20Website" class="cta-button">Contact Us</a>
-            <p class="location-note">Our firm is based in Miami, Florida.</p>
+            <h2>Connect With Us</h2> <p>We are actively seeking partnerships with exceptional B2B services companies. If you are a business owner considering a transition, a management team seeking a growth partner, or an intermediary representing a potential opportunity, we would welcome the chance to connect.</p>
+            <a href="#contact" class="cta-button">Initiate Discussion</a> <p class="location-note">Based in Miami, FL | Investing Nationwide</p>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <div class="social-links">
-                <a href="#" aria-label="LinkedIn"><span>in</span></a>
-                <a href="#" aria-label="Twitter"><span>𝕏</span></a>
-            </div>
-            <p>&copy; <span id="currentYear"></span> Exceed Growth Partners. All Rights Reserved.</p>
-        </div>
+             <p>&copy; 2025 Exceed Growth Partners. All Rights Reserved.</p>
+             </div>
     </footer>
 
-    <div class="cookie-consent" id="cookieConsent">
-        <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. <a href="/privacy-policy" style="color:var(--primary-color);text-decoration:underline;">Learn More</a></p> <div class="cookie-buttons">
-            <button class="cookie-btn reject-cookies" id="rejectCookies">Reject</button>
+    <a href="#hero" class="back-to-top" aria-label="Back to top">↑</a> <div class="cookie-consent" id="cookieConsentBanner">
+        <p>This website uses cookies to ensure you get the best experience. By continuing to use this site, you agree to our use of cookies.</p>
+        <div class="cookie-buttons">
+            <button class="cookie-btn reject-cookies" id="rejectCookies">Decline</button>
             <button class="cookie-btn accept-cookies" id="acceptCookies">Accept</button>
         </div>
     </div>
 
-    <a href="#hero" class="back-to-top" id="backToTop" aria-label="Back to top">↑</a>
-
     <script>
-      // Wrap script in an immediately invoked function expression (IIFE)
-      // to avoid polluting the global scope.
-      (function() {
-        'use strict'; // Enable strict mode
+        // --- Basic Smooth Scroll for Nav Links ---
+        document.querySelectorAll('nav ul li a[href^="#"], .cta-button[href^="#"], .back-to-top[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Prevent default only if it's a hash link on the same page
+                if (this.hash !== "") {
+                    const targetElement = document.querySelector(this.hash);
+                    if (targetElement) {
+                         e.preventDefault();
+                         // Close mobile menu if open
+                         const navMenu = document.getElementById('nav-menu');
+                         if (navMenu && navMenu.classList.contains('show')) {
+                            navMenu.classList.remove('show');
+                            document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded', 'false');
+                         }
+                         // Scroll smoothly
+                         targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
 
-        // --- Elements ---
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        // --- Mobile Menu Toggle ---
+        const menuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.getElementById('nav-menu');
-        const backToTopButton = document.getElementById('backToTop');
-        const cookieConsentBanner = document.getElementById('cookieConsent');
-        const acceptCookiesBtn = document.getElementById('acceptCookies');
-        const rejectCookiesBtn = document.getElementById('rejectCookies');
-        const yearSpan = document.getElementById('currentYear');
-        const navbar = document.getElementById('navbar');
-        const allAnchorLinks = document.querySelectorAll('a[href^="#"]');
-
-        // --- Functions ---
-
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-          const isExpanded = navMenu.classList.toggle('show');
-          mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+        if (menuBtn && navMenu) {
+            menuBtn.addEventListener('click', () => {
+                const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+                navMenu.classList.toggle('show');
+                menuBtn.setAttribute('aria-expanded', !isExpanded);
+                menuBtn.innerHTML = navMenu.classList.contains('show') ? '&times;' : '☰'; // Toggle icon
+            });
         }
 
-        // Back to top button visibility
-        function handleScroll() {
-          // Back to top visibility
-          if (window.scrollY > 300) {
-            backToTopButton.classList.add('visible');
-          } else {
-            backToTopButton.classList.remove('visible');
-          }
-
-          // Navbar style change on scroll
-          if (window.scrollY > 50) {
-            navbar.style.padding = '0.7rem 0';
-            navbar.style.boxShadow = '0 2px 15px rgba(0,0,0,0.15)';
-          } else {
-            navbar.style.padding = '1rem 0';
-            navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-          }
-        }
-
-        // Smooth scroll implementation
-        function smoothScrollToTarget(e) {
-           // Allow default behavior for non-anchor links or the back-to-top button's direct href
-           if (!this.getAttribute('href').startsWith('#') || this.id === 'backToTop') {
-               // Let the browser handle the #hero jump for back-to-top
-               // If you want JS smooth scroll *even* for back-to-top, remove this condition
-               // and ensure the back-to-top href="#" doesn't conflict.
-               return;
-           }
-
-           e.preventDefault(); // Prevent default jump only for handled anchors
-
-           const targetId = this.getAttribute('href');
-           // Check if it's more than just "#"
-           if (targetId.length > 1) {
-               const targetElement = document.querySelector(targetId);
-               if (targetElement) {
-                   // Close mobile menu if open and the click is on a menu item
-                   if (navMenu.classList.contains('show') && this.closest('#nav-menu')) {
-                       toggleMobileMenu();
-                   }
-
-                   // Calculate scroll position (consider fixed header height if needed)
-                   const headerOffset = navbar.offsetHeight;
-                   const elementPosition = targetElement.getBoundingClientRect().top;
-                   const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                   window.scrollTo({
-                       top: offsetPosition,
-                       behavior: 'smooth'
-                   });
-               } else {
-                   console.warn('Smooth scroll target not found:', targetId);
-               }
-           }
-        }
-
-
-        // Cookie Consent Logic
-        function handleCookieConsent(accepted) {
-          cookieConsentBanner.classList.remove('visible'); // Hide banner immediately
-          // **Persistence Logic:**
-          // Use localStorage (simple) or actual cookies (more robust)
-          // Example using localStorage:
-          localStorage.setItem('cookieConsentGiven', 'true');
-          if (accepted) {
-             localStorage.setItem('cookieConsentAccepted', 'true');
-             console.log('Cookies accepted by user.');
-             // Add any logic needed when cookies are accepted (e.g., load analytics)
-          } else {
-             localStorage.setItem('cookieConsentAccepted', 'false');
-             console.log('Cookies rejected by user.');
-             // Add any logic needed when cookies are rejected (e.g., disable tracking)
-          }
-        }
-
-        function checkCookieConsent() {
-          const consentGiven = localStorage.getItem('cookieConsentGiven');
-          if (!consentGiven) {
-            // Show banner after a delay if consent hasn't been recorded
-            setTimeout(() => {
-              cookieConsentBanner.classList.add('visible');
-            }, 2000); // Delay showing banner
-          } else {
-             console.log('Cookie consent already handled.');
-             // Optional: if consent was given & accepted, run acceptance logic now
-             // const accepted = localStorage.getItem('cookieConsentAccepted') === 'true';
-             // if (accepted) { /* Load analytics etc. */ }
-          }
-        }
-
-        // Set current year in footer
-        function setCurrentYear() {
-          if (yearSpan) {
-            yearSpan.textContent = new Date().getFullYear();
-          }
-        }
-
-        // --- Event Listeners ---
-        if (mobileMenuBtn && navMenu) {
-          mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-        }
-
+        // --- Back to Top Button ---
+        const backToTopButton = document.querySelector('.back-to-top');
         if (backToTopButton) {
-          // Scroll listener handles visibility
-          // Smooth scroll listener handles the click
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) { // Show after scrolling 300px
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
         }
 
-        if (cookieConsentBanner && acceptCookiesBtn && rejectCookiesBtn) {
-          acceptCookiesBtn.addEventListener('click', () => handleCookieConsent(true));
-          rejectCookiesBtn.addEventListener('click', () => handleCookieConsent(false));
+        // --- Cookie Consent Banner ---
+        const cookieBanner = document.getElementById('cookieConsentBanner');
+        const acceptBtn = document.getElementById('acceptCookies');
+        const rejectBtn = document.getElementById('rejectCookies');
+        const cookieConsentKey = 'user_cookie_consent';
+
+        if (cookieBanner && acceptBtn && rejectBtn) {
+            // Check if consent already given
+            const consentGiven = localStorage.getItem(cookieConsentKey);
+
+            if (!consentGiven) {
+                // Timeout to prevent banner appearing instantly on load (optional)
+                setTimeout(() => {
+                   cookieBanner.classList.add('visible');
+                }, 1500);
+            }
+
+            acceptBtn.addEventListener('click', () => {
+                localStorage.setItem(cookieConsentKey, 'accepted');
+                cookieBanner.classList.remove('visible');
+                 // Optional: Add analytics tracking code activation here
+            });
+
+            rejectBtn.addEventListener('click', () => {
+                localStorage.setItem(cookieConsentKey, 'rejected');
+                cookieBanner.classList.remove('visible');
+                // Optional: Ensure non-essential cookies/scripts are not loaded
+            });
         }
 
-        // Attach smooth scroll to all relevant anchor links
-        allAnchorLinks.forEach(anchor => {
-            anchor.addEventListener('click', smoothScrollToTarget);
-        });
-
-        // Global scroll listener
-        window.addEventListener('scroll', handleScroll);
-
-        // --- Initializations ---
-        document.addEventListener('DOMContentLoaded', () => {
-          setCurrentYear();
-          checkCookieConsent();
-          handleScroll(); // Run once on load to set initial navbar style if already scrolled
-        });
-
-      })(); // End of IIFE
+        // --- Optional: Navbar shrink on scroll ---
+        const navbar = document.getElementById('navbar');
+        if (navbar) {
+            const initialPadding = getComputedStyle(navbar).paddingTop; // Get initial padding
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 50) {
+                    navbar.style.paddingTop = '0.5rem'; // Adjust shrunk padding
+                    navbar.style.paddingBottom = '0.5rem';
+                } else {
+                    navbar.style.paddingTop = initialPadding;
+                    navbar.style.paddingBottom = initialPadding;
+                }
+            });
+        }
 
     </script>
 
-</body>
+    </body>
 </html>
